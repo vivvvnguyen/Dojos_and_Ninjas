@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>New Ninja Form</title>
+</head>
+<body>
+    <form action="/create/ninja" method="post" class="mx-auto">
+        {# <!-- Create the form that New Ninjas will fill out --> #}
+        <h2 class = "text-center text-primary">New Ninja</h2>
+        <div class="form-group">
+            {# <!-- Form needs Dojo location, FN, LN, and Age inputs --> #}
+            {# <!-- Drop Down Menu Needed --> #}
+            <label for="dojo_location">Dojo: </label>
+            <select name="dojo_id" class="form-control">
+                {% for d in dojos %}
+                <option value="{{d.id}}">{{d.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="first_name">First Name: </label>
+            <input type="text" name="first_name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="last_name">Last Name: </label>
+            <input type="text" name="last_name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="age">Age: </label>
+            <input type="number" name="age" class="form-control">
+        </div>
+        {# <!-- Needs and Submit Button and a Home Page Link --> #}
+        <input type="submit" value="Add Ninja" class="btn btn-primary">
+    </form>
+    {# <!-- Redirect User to the Home page after creating a Ninja  --> #}
+    <a href="/" class="btn btn-link">Home</a>
+</body>
+</html
